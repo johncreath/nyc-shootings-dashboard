@@ -63,8 +63,7 @@ This step was critical—without normalization, conclusions would be misleading.
 ---
 
 ## Repository Structure
-```
-.
+```text
 ├── app.py                  # Streamlit app  
 ├── data/                   # Cleaned dataset  
 ├── src/                    # Data + chart logic  
