@@ -57,7 +57,10 @@ def make_hour_chart_filtered(base_df, borough_sel, day_sel, time_sel):
             ],
         )
         .properties(
-            title="Shootings by Hour",
+            title=alt.TitleParams(
+                text="Shootings by Hour",
+                fontSize=18
+            ),
             width=DASHBOARD_WIDTH,
             height=MAIN_CHART_HEIGHT,
         )
