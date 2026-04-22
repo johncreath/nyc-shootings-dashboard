@@ -32,6 +32,7 @@ def hour_label(hour):
     return f"{hour - 12} PM"
 
 
+@st.cache_data(show_spinner=False)
 def prepare_base_data(df):
     df = df.copy()
 
@@ -118,6 +119,7 @@ def prepare_base_data(df):
     return base_df
 
 
+@st.cache_data(show_spinner=False)
 def build_borough_norm_df(base_df):
     borough_norm_df = (
         base_df.groupby("borough")
@@ -135,6 +137,7 @@ def build_borough_norm_df(base_df):
     return borough_norm_df
 
 
+@st.cache_data(show_spinner=False)
 def build_day_norm_df(base_df):
     day_counts = (
         base_df.dropna(subset=["OCCUR_DATE", "day_type_standard"])
@@ -159,6 +162,7 @@ def build_day_norm_df(base_df):
     return day_norm_df
 
 
+@st.cache_data(show_spinner=False)
 def build_time_norm_df(base_df):
     time_source = base_df.dropna(
         subset=["OCCUR_DATE", "hour", "time_group", "INCIDENT_KEY"]
