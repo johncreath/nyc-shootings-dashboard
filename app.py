@@ -11,6 +11,11 @@ from src.charts import make_dashboard_chart
 
 st.set_page_config(page_title="New York City Shootings Dashboard", layout="wide")
 
+APP_ENV = os.getenv("APP_ENV", "PROD")
+
+if APP_ENV.upper() != "PROD":
+    st.warning(f"{APP_ENV} VERSION - This app is for testing only.")
+
 st.markdown(
     """
     <style>
