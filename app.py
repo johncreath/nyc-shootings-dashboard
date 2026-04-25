@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 
 from src.load_data import load_data
