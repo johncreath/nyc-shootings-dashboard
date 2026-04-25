@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 
 from src.load_data import load_data
@@ -16,13 +17,18 @@ st.markdown(
     <style>
         .block-container {
             max-width: 1200px;
-            padding-top: 2rem;
+            padding-top: 3rem;
             padding-bottom: 2rem;
         }
     </style>
     """,
     unsafe_allow_html=True,
 )
+
+APP_ENV = os.getenv("APP_ENV", "PROD")
+
+if APP_ENV.upper() != "PROD":
+    st.warning(f"{APP_ENV} VERSION - This app is for testing only.")
 
 raw_df = load_data()
 base_df = prepare_base_data(raw_df)
